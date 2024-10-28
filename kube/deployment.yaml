@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: price-pred-ml-kube-train-deployment
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: price-pred-ml-kube-train
+  template:
+    metadata:
+      labels:
+        app: price-pred-ml-kube-train
+    spec:
+      containers:
+      - name: price-pred-ml-kube-train
+        image: docker.io/hdingdockerdesktop/price-pred-ml-kube-train:latest 
+        ports:
+        - containerPort: 8000

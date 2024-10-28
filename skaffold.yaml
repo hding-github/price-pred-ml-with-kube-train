@@ -1,0 +1,15 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: price-pred-ml-with-kube_api
+build:
+  artifacts:
+    - image: hdingdockerdesktop/price-pred-ml-kube_train
+      docker:
+        dockerfile: Dockerfile
+  tagPolicy:
+    sha256: {}
+manifests:
+  rawYaml:
+    - kube/deployment.yaml
+    - kube/service.yaml
