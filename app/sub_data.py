@@ -31,7 +31,7 @@ def data_review(df_data):
     print_data_report(tReport, "**** Statistics ****")
 
 def get_data_locally():
-    strFileName = "boston.csv"
+    strFileName = "./app/boston.csv"
     raw_df = pd.read_csv(strFileName)
     df_data = pd.DataFrame(raw_df)
 
